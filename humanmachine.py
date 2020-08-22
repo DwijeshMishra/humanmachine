@@ -15,7 +15,7 @@ print()
 print("COMMON USE")
 print("Ask to Open Chrome Browser")
 print("Ask to Open Notepad")
-print("Ask to Open File Explorer")
+
 
 print()
 
