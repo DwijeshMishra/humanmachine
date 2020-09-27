@@ -1,46 +1,59 @@
 import pyttsx3
 import os
+import speech_recognition as sr
 
 # pyttsx3.speak("Welcome to my tools")
 
 # IDE
 print("ALl IDE'S ARE AVAILABLE HERE")
-print("Ask to Open Visual Studio code")
-print("Ask to Open NetBeans IDE")
-print("Ask to Open Pycharm IDE")
+print("Pleas Say to Open Visual Studio code")
+print("Pleas Say to Open NetBeans IDE")
+print("Pleas Say to Open Pycharm IDE")
 
 print()
 
 # COMMON USE
 print("COMMON USE")
-print("Ask to Open Chrome Browser")
-print("Ask to Open Notepad")
-
+print("Pleas Say to Open Chrome Browser")
+print("Pleas Say to Open Notepad")
+print("Pleas Say to Open File Explorer")
 
 print()
 
 # OFFICE AREA
 print("OFFICE AREA")
-print("Ask to Open Microsoft Word")
-print("Ask to Open Microsoft Paint")
-print("Ask to Open Microsoft Access")  # MSACCESS #
-print("Ask to Open Microsoft Publisher")  # MSPUB #
-print("Ask to Open Microsoft Outlook")  # OUTLOOK #
-print("Ask to Open Microsoft PowerPoint")  # POWERPNT #
-print("Ask to Open Microsoft Skype for Bussiness")  # lync #
-print("Ask to Open Microsoft Manage Microsoft offlice file upload to Webservers")  # MSOUC #
-print("Ask to Open Microsoft Skype for Business Recording Manager")  # OcPubMgr #
-print("Ask to Open Microsoft Outlook Mail Setup")  # OLCFG #
-print("Ask to Open Microsoft Organization Chart Add-in for Microsoft Office programs")  # ORGCHART #
+print("Pleas Say to Open Microsoft Word")
+print("Pleas Say to Open Microsoft Paint")
+print("Pleas Say to Open Microsoft Access")  # MSACCESS #
+print("Pleas Say to Open Microsoft Publisher")  # MSPUB #
+print("Pleas Say to Open Microsoft Outlook")  # OUTLOOK #
+print("Pleas Say to Open Microsoft PowerPoint")  # POWERPNT #
+print("Pleas Say to Open Microsoft Skype for Bussiness")  # lync #
+print("Pleas Say to Open Microsoft Manage Microsoft offlice file upload to Webservers")  # MSOUC #
+print("Pleas Say to Open Microsoft Skype for Business Recording Manager")  # OcPubMgr #
+print("Pleas Say to Open Microsoft Outlook Mail Setup")  # OLCFG #
+print("Pleas Say to Open Microsoft Organization Chart Add-in for Microsoft Office programs")  # ORGCHART #
 
 print("Write exit to leave")
 print()
 
+
+
 while True:
-    p = input("Please Ask What You Want")
+  obj =sr.Recognizer()
+
+  with sr.Microphone() as source:
+    print("Please Pleas Say your cmd to run")
+    audio = obj.listen(source)
+    print("Done")
+
+    
+    p= obj.recognize_google(audio)
+    print(p)
+    
     if not ("do not" in p) or "don't" in p:
         # 1
-        if ("run" or "execute" in p) and ("chrome" or "browser" in p):
+        if (("run" in p) or ("execute" in p)) and (("chrome" in p) or ("chromebrowser" in p)):
             os.system("chrome")
         # 2
         elif (("run" in p) or ("execute" in p)) and (("NetBeans IDE" in p) or ("netbeanside" in p)):
@@ -125,8 +138,10 @@ while True:
             break
 
         else:
-            print("Don't support")
+            print("Please say it again and correctly")
 
     else:
-        print("Sorry But Please say to run")
-print("Thank for Using My Machine")
+        print("Sorry But You ask to don't run")
+
+
+print("Thanks for Using My Machine")
